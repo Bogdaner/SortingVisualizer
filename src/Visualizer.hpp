@@ -15,6 +15,8 @@
 #include "algorithms/BubbleSort.hpp"
 #include "algorithms/QuickSort.hpp"
 #include "algorithms/SortingAlgorithm.hpp"
+#include "algorithms/MergeSort.hpp"
+#include "algorithms/InsertionSort.hpp"
 
 struct TableItem
 {

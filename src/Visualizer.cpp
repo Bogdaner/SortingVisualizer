@@ -111,7 +111,7 @@ void Visualizer::drawControlsMenu(sf::RenderWindow &window)
 
             ImGuiListClipper clipper;
             clipper.Begin(tableItems.Size);
-            while (clipper.Step())
+            while (clipper.Step()) {
                 for (int row_n = clipper.DisplayStart; row_n < clipper.DisplayEnd; row_n++) {
                     // Display a data item
                     TableItem *item = &tableItems[tableItems.size() - 1 - row_n];
@@ -130,6 +130,7 @@ void Visualizer::drawControlsMenu(sf::RenderWindow &window)
                     ImGui::Text("%lld", item->stats.duration);
                     ImGui::PopID();
                 }
+            }
 
             ImGui::EndTable();
         }
@@ -194,6 +195,8 @@ std::vector<std::unique_ptr<SortingAlgorithm>> Visualizer::algorithms = [] {
     std::vector<std::unique_ptr<SortingAlgorithm>> ret;
     ret.emplace_back(std::make_unique<BubbleSort>(BubbleSort{}));
     ret.emplace_back(std::make_unique<QuickSort>(QuickSort{}));
+    ret.emplace_back(std::make_unique<MergeSort>(MergeSort{}));
+    ret.emplace_back(std::make_unique<InsertionSort>(InsertionSort{}));
     return ret;
 }();
 

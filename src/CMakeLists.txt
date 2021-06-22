@@ -6,6 +6,8 @@ add_executable(SortingVisualizer
     algorithms/SortingAlgorithm.cpp
     algorithms/BubbleSort.hpp
     algorithms/QuickSort.hpp
+    algorithms/MergeSort.hpp
+    algorithms/InsertionSort.hpp    
 )
 
 target_link_libraries(SortingVisualizer PRIVATE ImGui-SFML::ImGui-SFML)

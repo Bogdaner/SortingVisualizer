@@ -22,8 +22,6 @@ class BubbleSort : public SortingAlgorithm
             }
         }
     }
-
-  protected:
 };
 
 #endif// BUBBLE_SORT_HPP

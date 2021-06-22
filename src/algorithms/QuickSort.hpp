@@ -47,8 +47,6 @@ class QuickSort : public SortingAlgorithm
 
         return (i + 1);
     }
-
-  protected:
 };
 
 #endif// QUICK_SORT_HPP
