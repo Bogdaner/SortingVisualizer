@@ -39,7 +39,7 @@ int SortingAlgorithm::isLastAccessed(unsigned int v)
 
 void SortingAlgorithm::startSorting(const size_t elems)
 {
-    sorting = true;
+    sorting.store(true);
     stats.swaps = 0;
     stats.elements = elems;
     clock = high_resolution_clock::now();
@@ -47,7 +47,7 @@ void SortingAlgorithm::startSorting(const size_t elems)
 
 void SortingAlgorithm::stopSorting()
 {
-    sorting = false;
+    sorting.store(false);
     stats = SortingStatistics{};
     const std::lock_guard<std::mutex> gurad{ lastAccessedMutex };
     lastAccessed.clear();
@@ -57,7 +57,7 @@ unsigned int SortingAlgorithm::stepDelay = 1U;
 unsigned int SortingAlgorithm::maxLastAccessedStored = 10U;
 
 SortingStatistics SortingAlgorithm::stats{};
-time_point<steady_clock> SortingAlgorithm::clock{};
+time_point<high_resolution_clock> SortingAlgorithm::clock{};
 std::deque<unsigned int> SortingAlgorithm::lastAccessed{};
 std::mutex SortingAlgorithm::lastAccessedMutex{};
-std::atomic_bool SortingAlgorithm::sorting = false;
+std::atomic_bool SortingAlgorithm::sorting{ false };

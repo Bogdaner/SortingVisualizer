@@ -1,6 +1,7 @@
 #ifndef SORTING_ALGORITHM_HPP
 #define SORTING_ALGORITHM_HPP
 
+#include <algorithm>
 #include <atomic>
 #include <chrono>
 #include <deque>
@@ -40,7 +41,7 @@ class SortingAlgorithm
     static std::deque<unsigned int> lastAccessed;
     static std::mutex lastAccessedMutex;
     static SortingStatistics stats;
-    static std::chrono::time_point<std::chrono::steady_clock> clock;
+    static std::chrono::time_point<std::chrono::high_resolution_clock> clock;
 
   protected:
     static void waitForNextStep(const std::pair<unsigned int, unsigned int> accessedElements);
